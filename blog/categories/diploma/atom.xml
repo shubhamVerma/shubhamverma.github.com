@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Diploma | A Geek's Life]]></title>
+  <title><![CDATA[Category: diploma | A Geek's Life]]></title>
   <link href="http://shubhamverma.github.io/blog/categories/diploma/atom.xml" rel="self"/>
   <link href="http://shubhamverma.github.io/"/>
-  <updated>2014-11-03T13:22:36+00:00</updated>
+  <updated>2014-11-03T13:26:43+00:00</updated>
   <id>http://shubhamverma.github.io/</id>
   <author>
     <name><![CDATA[Shubham Verma]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Journey With Programming Languages - Part 3]]></title>
+    <title type="html"><![CDATA[Journey with Programming Languages - Part 3]]></title>
     <link href="http://shubhamverma.github.io/blog/2014/11/03/journey-with-programming-languages-part-3/"/>
     <updated>2014-11-03T12:42:46+00:00</updated>
     <id>http://shubhamverma.github.io/blog/2014/11/03/journey-with-programming-languages-part-3</id>
@@ -47,7 +47,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Journey With Programming Languages - Part 2]]></title>
+    <title type="html"><![CDATA[Journey with Programming Languages - Part 2]]></title>
     <link href="http://shubhamverma.github.io/blog/2014/02/20/journey-with-programming-languages-part-2/"/>
     <updated>2014-02-20T12:34:53+00:00</updated>
     <id>http://shubhamverma.github.io/blog/2014/02/20/journey-with-programming-languages-part-2</id>
