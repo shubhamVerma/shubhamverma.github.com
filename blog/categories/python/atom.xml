@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Python | My Octopress Blog]]></title>
+  <link href="http://shubhamverma.github.io/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://shubhamverma.github.io/"/>
+  <updated>2014-11-03T12:49:02+00:00</updated>
+  <id>http://shubhamverma.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Breaking Down a Python One Liner]]></title>
+    <link href="http://shubhamverma.github.io/blog/2014/11/03/breaking-down-a-python-one-liner/"/>
+    <updated>2014-11-03T12:47:46+00:00</updated>
+    <id>http://shubhamverma.github.io/blog/2014/11/03/breaking-down-a-python-one-liner</id>
+    <content type="html"><![CDATA[<p>Recently a friend of mine asked me to help her with a <a href="https://www.python.org/">Python</a> script she was working on. The script had to process a log file. So the problem was that the script had to identify the most recently modified log file among the list of log files present in the current working directory. And another issue was that there might be some other files and directories present in the working directory of the script.</p>
+
+<p>So I came up with this one liner to find out the most recently updated log file.</p>
+
+<pre><code class="python">sorted([f for f in os.listdir('.') if f.startswith('log')], key=lambda a: os.path.getmtime(a))[-1]
+</code></pre>
+
+<p>I know it looks scary, and long enough to not fit on a single line, but it shows the <a href="http://stackoverflow.com/questions/638881/what-does-expressive-mean-when-referring-to-programming-languages">expressive nature</a> of Python. That&rsquo;s one of the reasons I decided to learn it and I ended up liking it!</p>
+
+<p>So lets break it down.</p>
+
+<p>First we need to get the list of all files in the current working directory. The built-in <code>os</code> module in Python provides a utility function <code>listdir</code> which can used as:</p>
+
+<pre><code class="python">os.listdir('.')
+</code></pre>
+
+<p>That returns a <strong>list</strong> - just another name for an array in Python lingo, containing the names of all files and directories in the current directory of the script. We do need to import the os module for that. So the following must be added at the top in the script:</p>
+
+<pre><code class="python">import os
+</code></pre>
+
+<p>A special thing about log files was that their name starts with <strong>log</strong>. So now we just need to filter out the log files. Using <a href="https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions">list comprehension</a> in Python makes it a lot easier.</p>
+
+<pre><code class="python">logFiles = [f for f in os.listdir('.') if f.startswith('log')]
+</code></pre>
+
+<p>This will give us just the list of log files in the current working directory. Sweet.</p>
+
+<p>To find out the most recently modified file, we need to know the <strong>last modified time</strong> of each file and then sort them according to it. The <code>path</code> sub-module in <code>os</code> module contains a function <code>getmtime</code> that returns the last modified time of the file. It can be used as:</p>
+
+<pre><code class="python">os.path.getmtime(filename)
+</code></pre>
+
+<p>For sorting we need to use the <code>sorted</code> function. Its syntax is:</p>
+
+<pre><code class="python">sorted(iterable, key)
+</code></pre>
+
+<p>The first argument <code>iterable</code> is the list that we want to sort. The second argument <code>key</code> has to be a function which defines the criteria for sorting.</p>
+
+<p>Functions can be defined in two ways in Python. The normal synatx is:</p>
+
+<pre><code class="python">def addOne(a):
+  return a + 1
+</code></pre>
+
+<p>We can also define an anonymous function known as <a href="http://stackoverflow.com/questions/890128/python-lambda-why">lambda</a> in Python land. So the above function can be written as a lambda:</p>
+
+<pre><code class="python">add = lambda a: a + 1
+</code></pre>
+
+<p>I use the lambda synatx to define the <code>key</code> for the <code>sorted</code> function.</p>
+
+<p>Our <code>key</code> function would look like this:</p>
+
+<pre><code class="python">keyFn = lambda a: os.path.getmtime(a)
+</code></pre>
+
+<p>This will return the last modified time for the filename represnted by the variable <code>a</code>.</p>
+
+<p>So far, we have this:</p>
+
+<pre><code class="python">logFiles = [f for f in os.listdir('.') if f.startswith('log')]
+keyFn = lambda a: os.path.getmtime(a)
+logFilesSortedByLastModifiedTime = sorted(logFiles, key=keyFn)
+</code></pre>
+
+<p>The sorted list that is being returned here is:</p>
+
+<pre><code>['least_recently_modified',.....,'most_recently_modified']
+</code></pre>
+
+<p>We want the last element of the list. In Python, we can use negative indexes with list. So an index of -1 refers to the last element of the list.</p>
+
+<p>Now we have:</p>
+
+<pre><code class="python">logFiles = [f for f in os.listdir('.') if f.startswith('log')]
+keyFn = lambda a: os.path.getmtime(a)
+logFilesSortedByLastModifiedTime = sorted(logFiles, key=keyFn)
+mostRecentlyModifiedLogFile = logFilesSortedByLastModifiedTime[-1]
+</code></pre>
+
+<p>Eliminating the variables, we can write the above four lines in just one line:</p>
+
+<pre><code class="python">sorted([f for f in os.listdir('.') if f.startswith('log')], key=lambda a: os.path.getmtime(a))[-1]
+</code></pre>
+
+<p>Hope that was fun! Happy Coding :)</p>
+]]></content>
+  </entry>
+  
+</feed>

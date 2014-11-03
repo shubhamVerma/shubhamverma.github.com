@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://shubhamverma.github.io/atom.xml" rel="self"/>
   <link href="http://shubhamverma.github.io/"/>
-  <updated>2014-11-03T12:44:32+00:00</updated>
+  <updated>2014-11-03T12:49:02+00:00</updated>
   <id>http://shubhamverma.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,6 +12,134 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Breaking Down a Python One Liner]]></title>
+    <link href="http://shubhamverma.github.io/blog/2014/11/03/breaking-down-a-python-one-liner/"/>
+    <updated>2014-11-03T12:47:46+00:00</updated>
+    <id>http://shubhamverma.github.io/blog/2014/11/03/breaking-down-a-python-one-liner</id>
+    <content type="html"><![CDATA[<p>Recently a friend of mine asked me to help her with a <a href="https://www.python.org/">Python</a> script she was working on. The script had to process a log file. So the problem was that the script had to identify the most recently modified log file among the list of log files present in the current working directory. And another issue was that there might be some other files and directories present in the working directory of the script.</p>
+
+<p>So I came up with this one liner to find out the most recently updated log file.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="nb">sorted</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">a</span><span class="p">))[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I know it looks scary, and long enough to not fit on a single line, but it shows the <a href="http://stackoverflow.com/questions/638881/what-does-expressive-mean-when-referring-to-programming-languages">expressive nature</a> of Python. That&rsquo;s one of the reasons I decided to learn it and I ended up liking it!</p>
+
+<p>So lets break it down.</p>
+
+<p>First we need to get the list of all files in the current working directory. The built-in <code>os</code> module in Python provides a utility function <code>listdir</code> which can used as:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That returns a <strong>list</strong> - just another name for an array in Python lingo, containing the names of all files and directories in the current directory of the script. We do need to import the os module for that. So the following must be added at the top in the script:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A special thing about log files was that their name starts with <strong>log</strong>. So now we just need to filter out the log files. Using <a href="https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions">list comprehension</a> in Python makes it a lot easier.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">logFiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will give us just the list of log files in the current working directory. Sweet.</p>
+
+<p>To find out the most recently modified file, we need to know the <strong>last modified time</strong> of each file and then sort them according to it. The <code>path</code> sub-module in <code>os</code> module contains a function <code>getmtime</code> that returns the last modified time of the file. It can be used as:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For sorting we need to use the <code>sorted</code> function. Its syntax is:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="nb">sorted</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The first argument <code>iterable</code> is the list that we want to sort. The second argument <code>key</code> has to be a function which defines the criteria for sorting.</p>
+
+<p>Functions can be defined in two ways in Python. The normal synatx is:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">def</span> <span class="nf">addOne</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We can also define an anonymous function known as <a href="http://stackoverflow.com/questions/890128/python-lambda-why">lambda</a> in Python land. So the above function can be written as a lambda:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">add</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I use the lambda synatx to define the <code>key</code> for the <code>sorted</code> function.</p>
+
+<p>Our <code>key</code> function would look like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">keyFn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will return the last modified time for the filename represnted by the variable <code>a</code>.</p>
+
+<p>So far, we have this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">logFiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)]</span>
+</span><span class='line'><span class="n">keyFn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span><span class='line'><span class="n">logFilesSortedByLastModifiedTime</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">logFiles</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">keyFn</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The sorted list that is being returned here is:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="p">[</span><span class="s">&#39;least_recently_modified&#39;</span><span class="p">,</span><span class="o">.....</span><span class="p">,</span><span class="s">&#39;most_recently_modified&#39;</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We want the last element of the list. In Python, we can use negative indexes with list. So an index of -1 refers to the last element of the list.</p>
+
+<p>Now we have:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">logFiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)]</span>
+</span><span class='line'><span class="n">keyFn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span><span class='line'><span class="n">logFilesSortedByLastModifiedTime</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">logFiles</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">keyFn</span><span class="p">)</span>
+</span><span class='line'><span class="n">mostRecentlyModifiedLogFile</span> <span class="o">=</span> <span class="n">logFilesSortedByLastModifiedTime</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Eliminating the variables, we can write the above four lines in just one line:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="nb">sorted</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">a</span><span class="p">))[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Hope that was fun! Happy Coding :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Journey With Programming Languages - Part 3]]></title>
