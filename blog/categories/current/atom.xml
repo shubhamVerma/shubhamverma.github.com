@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Diploma | My Octopress Blog]]></title>
-  <link href="http://shubhamverma.github.io/blog/categories/diploma/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Current | My Octopress Blog]]></title>
+  <link href="http://shubhamverma.github.io/blog/categories/current/atom.xml" rel="self"/>
   <link href="http://shubhamverma.github.io/"/>
   <updated>2014-11-03T12:44:32+00:00</updated>
   <id>http://shubhamverma.github.io/</id>
@@ -43,31 +43,6 @@
 <p>and yes, he is referring to <a href="http://javascript.crockford.com/popular.html">JavaScript</a>. I am very <strong>comfortable with the syntax</strong> as coming from a <strong>C</strong> background and I appreciate its <strong>dynamic</strong> and <strong>functional</strong> nature as I was already exposed to those concepts through <strong>Python</strong>. I am impressed by the recent developments in the JavaScript ecosystem, especially <a href="http://nodejs.org/">Node.js</a>, and the rise of <a href="http://www.infragistics.com/community/blogs/nanil/archive/2013/04/01/exploring-javascript-mv-frameworks-part-1-hello-backbonejs.aspx">front-end MV* frameworks</a>. Though <strong>it has its <a href="http://darkhelmet.github.io/javascript-the-bad-parts/#/title">quirks</a></strong>, I have planned to take it very seriously and pursue it to be a <strong>full stack JavaScript developer</strong>. I am also looking forward to learn some <strong>un-conventional but exciting!</strong> technologies like <a href="http://www.mongodb.org/">MongoDB</a>, <a href="http://redis.io/">Redis</a> and the list goes on.</p>
 
 <p>By now, you might have concluded that <strong>I am a language geek!</strong> For people out there planning to go on a similar adventure, I would like to say that, <strong>try to focus on problem solving rather than getting lost in the syntax details</strong>. The syntax will come naturally once you learn the basics. I wish you good luck for  your programmatic journey. Just don&rsquo;t forget to have fun! :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Journey With Programming Languages - Part 2]]></title>
-    <link href="http://shubhamverma.github.io/blog/2014/02/20/journey-with-programming-languages-part-2/"/>
-    <updated>2014-02-20T12:34:53+00:00</updated>
-    <id>http://shubhamverma.github.io/blog/2014/02/20/journey-with-programming-languages-part-2</id>
-    <content type="html"><![CDATA[<h3>The Diploma</h3>
-
-<p><a href="http://en.wikipedia.org/wiki/C_language">C</a> was my first friend in diploma. It was a fresh beginning from the basics of programming. The books I referred at that time were <strong>Let Us C</strong>, <strong>How To Program - C Edition</strong>. C is an important language when it comes to both programming and understanding how low level stuff, like memory, works, as most of the things has to be taken care by the programmer himself. I was scared by <strong>pointers</strong> initially, but gradually overcame by trial and error method (what most programmers often do). I used Turbo C, but switched to <a href="http://www.bloodshed.net/devcpp.html">Dev-C++</a>. On the way I also tried <a href="http://www.codeblocks.org/">Code Blocks</a>.</p>
-
-<p>In the beginning, it gets bit difficult to decide which is the <strong>appropriate tool for the job</strong>, but the ultimate choice is what suits you the best.</p>
-
-<p>I learned about <strong>random numbers</strong> and created fun games for number guessing etc. I am glad that I learnt C, as it helped me in building a <strong>good foundation and a sound programming perspective</strong>.</p>
-
-<p>Then I came across <a href="http://en.wikipedia.org/wiki/C%2B%2B">C++</a>. This time I read about OOPs properly. It felt very similar to C and later I realized that it was a superset of C. The new stuff was <strong>classes</strong>, <strong>objects</strong>, <strong>templates</strong> etc. I didn&rsquo;t look much into the <a href="http://en.wikipedia.org/wiki/Standard_Template_Library">STL</a> (which I should have done!), but I liked the concept of templates, as they were great for <strong>abstraction</strong> and <strong>generalization</strong> of code. The books that I referred to for C++ were <strong>C++ for Artists</strong>, <strong>How To Program - C++ Edition</strong>, and <strong>Thinking in C++</strong>.</p>
-
-<p>I just love abstraction. <strong>Learning to think abstractly also leads to a better life</strong> (as it is all about ignoring unnecessary stuff).</p>
-
-<p>Next one was <a href="http://en.wikipedia.org/wiki/SQL">SQL</a>. It is actually more of a <a href="http://en.wikipedia.org/wiki/Domain-specific_language">DSL</a> rather than a programming language. And that means you only need to specify <strong>what you want instead of how you want</strong>. The <strong>query engine</strong> handles all that complex stuff. It is easy to learn but it also got complicated with stuff like <strong>database specific implementations</strong> of SQL, <strong>sub-queries</strong> etc.</p>
-
-<p>SQL is relevant for <a href="http://en.wikipedia.org/wiki/RDBMS">RDBMS</a>. I was also introduced to <a href="http://en.wikipedia.org/wiki/Entity_relationship">Entity-Relationship model</a> along with that. It is a nice and effective tool for <strong>high level design of the database</strong>, again providing <strong>abstraction</strong>. For some hands-on SQL, I preferred to use <a href="http://en.wikipedia.org/wiki/SQLite">SQLite</a>, as it didn&rsquo;t need a server and used simple files as the database. For executing queries and connecting to the database, I used <a href="http://www.softpedia.com/get/Internet/Servers/Database-Utils/Database-NET.shtml">Database .NET</a>. Its a freeware and fine for practicing.</p>
-
-<p>To be continued</p>
 ]]></content>
   </entry>
   
