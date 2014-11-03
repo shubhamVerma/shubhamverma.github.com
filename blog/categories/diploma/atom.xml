@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Beginner | My Octopress Blog]]></title>
-  <link href="http://shubhamverma.github.io/blog/categories/beginner/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Diploma | My Octopress Blog]]></title>
+  <link href="http://shubhamverma.github.io/blog/categories/diploma/atom.xml" rel="self"/>
   <link href="http://shubhamverma.github.io/"/>
   <updated>2014-11-03T12:40:57+00:00</updated>
   <id>http://shubhamverma.github.io/</id>
@@ -33,31 +33,6 @@
 <p>Next one was <a href="http://en.wikipedia.org/wiki/SQL">SQL</a>. It is actually more of a <a href="http://en.wikipedia.org/wiki/Domain-specific_language">DSL</a> rather than a programming language. And that means you only need to specify <strong>what you want instead of how you want</strong>. The <strong>query engine</strong> handles all that complex stuff. It is easy to learn but it also got complicated with stuff like <strong>database specific implementations</strong> of SQL, <strong>sub-queries</strong> etc.</p>
 
 <p>SQL is relevant for <a href="http://en.wikipedia.org/wiki/RDBMS">RDBMS</a>. I was also introduced to <a href="http://en.wikipedia.org/wiki/Entity_relationship">Entity-Relationship model</a> along with that. It is a nice and effective tool for <strong>high level design of the database</strong>, again providing <strong>abstraction</strong>. For some hands-on SQL, I preferred to use <a href="http://en.wikipedia.org/wiki/SQLite">SQLite</a>, as it didn&rsquo;t need a server and used simple files as the database. For executing queries and connecting to the database, I used <a href="http://www.softpedia.com/get/Internet/Servers/Database-Utils/Database-NET.shtml">Database .NET</a>. Its a freeware and fine for practicing.</p>
-
-<p>To be continued</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Journey With Programming Languages - Part 1]]></title>
-    <link href="http://shubhamverma.github.io/blog/2014/01/24/journey-with-programming-languages-part-1/"/>
-    <updated>2014-01-24T12:27:24+00:00</updated>
-    <id>http://shubhamverma.github.io/blog/2014/01/24/journey-with-programming-languages-part-1</id>
-    <content type="html"><![CDATA[<h3>The School</h3>
-
-<p>I first saw a PC at a relative’s house, on which I just played <strong>NES</strong> ( the Nintendo Entertainment System ) like games.</p>
-
-<p>My first PC was Intel Pentium III, 800 MHz CPU, 256 MB RAM, but it was good enough to play the original <strong>GTA Vice City</strong>.</p>
-
-<p>My first encounter with programming was with <a href="http://en.wikipedia.org/wiki/Logo_%28programming_language%29">MS Logo</a> as part of my school curriculum. I can’t exactly remember which grade I was in at that time. It used simple commands to draw lines, shapes and patterns. It was an awesome first time experience. I used to try various commands trying to build spider-web like patterns.</p>
-
-<p>Then I got introduced to <a href="http://en.wikipedia.org/wiki/Html">HTML</a>, the language of Web, as it was also a part of my school curriculum. It gave me a sense of working with something that’s really being used heavily out there. It was fun to make awfully looking colorful pages and link them with each other.</p>
-
-<p>In my final grade, we had <a href="http://en.wikipedia.org/wiki/Java_%28programming_language%29">Java</a>. It felt a lot more related to programming than HTML (I think everybody agrees with that). With that came stuff like <strong>Object Oriented Programming</strong>, classes, object etc. I was able to understand the basics of programming like variables, types, conditionals etc. but was not pretty clear with the whole Object-Oriented stuff and why things were supposed to be done in that way. I learned the definitions but failed to grasp the true meaning, may be due to my small age and lack of abstract thinking.</p>
-
-<p>That was the time I decided that this is the thing I am going to do for making a living. It gave me a sense of creativity and it was a great feeling to see my code work (for the first time). It gave me a sense of happiness. I felt emotionally attached to code. After completing my matriculation I decided to go for a Diploma in Computer Science instead of conventional higher secondary education, as Maths, Physics and Chemistry failed to excite me much, and there was no point in continuing them ( which I regretted later as my interest aroused in <strong>Game Development</strong> which heavily relied on Maths and Physics)</p>
-
-<p>This was end of my schooling and then I continued my education by joining Diploma in Computer Science.</p>
 
 <p>To be continued</p>
 ]]></content>
