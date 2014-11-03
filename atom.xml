@@ -4,7 +4,7 @@
   <title><![CDATA[A Geek's Life]]></title>
   <link href="http://shubhamverma.github.io/atom.xml" rel="self"/>
   <link href="http://shubhamverma.github.io/"/>
-  <updated>2014-11-03T12:52:16+00:00</updated>
+  <updated>2014-11-03T13:04:02+00:00</updated>
   <id>http://shubhamverma.github.io/</id>
   <author>
     <name><![CDATA[Shubham Verma]]></name>
@@ -70,7 +70,7 @@
 
 <p>The first argument <code>iterable</code> is the list that we want to sort. The second argument <code>key</code> has to be a function which defines the criteria for sorting.</p>
 
-<p>Functions can be defined in two ways in Python. The normal synatx is:</p>
+<p>Functions can be defined in two ways in Python. The normal syntax is:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
